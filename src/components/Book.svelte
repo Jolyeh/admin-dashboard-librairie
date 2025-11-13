@@ -15,7 +15,7 @@
 
     async function fetchBooks() {
         try {
-            const response = await fetch(`${urlApi}/book`, {
+            const response = await fetch(`${urlApi}/adminBook`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
