@@ -2,6 +2,7 @@
     import { onMount } from "svelte";
     import { Toast, confirmAlert, hideLoadingModal, showLoadingModal } from "../utils/toast.js";
     import { urlApi } from "../utils/constant.js";
+    import { marked } from "marked";
 
     let currentPage = 1;
     const perPage = 10;
@@ -199,10 +200,10 @@
                         <td>{request.user.name} {request.user.surname}</td>
                         <td>{request.type}</td>
                         <td>
-                            {#if request.reponse?.split(" ").length > 7}
+                            {#if request.reponse?.split(" ").length > 5}
                                 {request.reponse
                                     .split(" ")
-                                    .slice(0, 7)
+                                    .slice(0, 4)
                                     .join(" ")}...
                             {:else}
                                 {request.reponse}
@@ -309,7 +310,7 @@
                 <div
                     class="bg-base-300 rounded-lg py-3 px-3 text-sm leading-relaxed"
                 >
-                    {selectedRequest.reponse}
+                    {@html marked.parse(selectedRequest.reponse)}
                 </div>
             </div>
 
