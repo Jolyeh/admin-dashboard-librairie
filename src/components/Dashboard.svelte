@@ -14,7 +14,7 @@
     let requests = [];
     let books = [];
     let users = [];
-    let transactions = [];
+    let transactions = [1,2];
 
     let totalBooks = 0;
     let totalUsers = 0;
@@ -83,7 +83,7 @@
             }
 
             // Fetch transactions
-            const transactionsResp = await fetch(`${urlApi}/transaction`, {
+            const transactionsResp = await fetch(`${urlApi}/payment`, {
                 headers: { Authorization: `Bearer ${token || ""}` },
             });
             const transactionsData = await transactionsResp.json();
